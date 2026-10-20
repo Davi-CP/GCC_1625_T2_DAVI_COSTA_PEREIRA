@@ -1,0 +1,19 @@
+{
+  "n": 75,
+  "columns": {
+    "original": "Old Score",
+    "experimental": "New Score"
+  },
+  "difference_definition": "Old Score - New Score",
+  "difference_mean": 2.1333333333333333,
+  "normality_test": "Shapiro-Wilk",
+  "normality_statistic": 0.9405579321667655,
+  "normality_pvalue": 0.0015661811593486103,
+  "normality_alpha": 0.05,
+  "t_statistic": 6.925279320784546,
+  "df": 74,
+  "pvalue": 6.771327131708461e-10,
+  "alpha": 0.01,
+  "decision": "reject_H0",
+  "alternative": "mean_original_minus_experimental > 0"
+}

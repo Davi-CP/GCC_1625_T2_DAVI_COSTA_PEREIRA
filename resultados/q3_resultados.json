@@ -1,0 +1,38 @@
+{
+  "group_sizes": {
+    "compactos": 16,
+    "medios": 22,
+    "grandes_vans": 20
+  },
+  "group_means": {
+    "compactos": 22.5,
+    "medios": 19.545454545454547,
+    "grandes_vans": 17.75
+  },
+  "normality_tests": {
+    "compactos": {
+      "test": "Shapiro-Wilk",
+      "statistic": 0.9143226546152335,
+      "pvalue": 0.1366350961903881,
+      "alpha": 0.05
+    },
+    "medios": {
+      "test": "Shapiro-Wilk",
+      "statistic": 0.9590022956868751,
+      "pvalue": 0.46937828684341876,
+      "alpha": 0.05
+    },
+    "grandes_vans": {
+      "test": "Shapiro-Wilk",
+      "statistic": 0.936320189718729,
+      "pvalue": 0.20412792307212047,
+      "alpha": 0.05
+    }
+  },
+  "levene_statistic": 1.5446135623790822,
+  "levene_pvalue": 0.22250768201214746,
+  "anova_statistic": 30.64323773770957,
+  "anova_pvalue": 1.1426698001297829e-09,
+  "alpha": 0.05,
+  "decision": "reject_H0"
+}

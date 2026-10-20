@@ -1,0 +1,28 @@
+Trabalho de Inferência Estatística - GCC1625
+
+Vídeo não listado no YouTube:
+[INSIRA AQUI O LINK DO VÍDEO]
+
+Minutagem inicial:
+Q1: [mm:ss]
+Q2: [mm:ss]
+Q3: [mm:ss]
+Q4: [mm:ss]
+Q5: [mm:ss]
+
+Execução:
+1. Coloque os arquivos fornecidos pelo professor em data/.
+2. Crie o ambiente virtual (caso ainda não exista):
+   python -m venv .venv
+3. Ative-o no PowerShell:
+   .\.venv\Scripts\Activate.ps1
+4. Instale as dependências no ambiente virtual:
+   python -m pip install -r requirements.txt
+5. Execute, a partir da raiz:
+   python q1_tacos_golfe.py
+   python q2_transmissoes.py
+   python q3_anova_carros.py
+   python q4_anova_custos.py
+   python q5_qui_quadrado.py
+
+Os resultados numéricos e gráficos são criados em resultados/.
