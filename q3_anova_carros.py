@@ -23,9 +23,12 @@ def main() -> None:
     arrays = [np.asarray(values, dtype=float) for values in GROUPS.values()]
     normality = {}
     for name, values in zip(GROUPS, arrays):
+        # Verificação da normalidade para cada grupo. H0: o grupo tem distribuição normal | H1: o grupo não tem distribuição normal. 
         test = stats.shapiro(values)
         normality[name] = {"test": "Shapiro-Wilk", "statistic": float(test.statistic), "pvalue": float(test.pvalue), "alpha": 0.05}
+    # Homogeneidade de variâncias: H0: as variâncias dos grupos são iguais | H1: pelo menos uma das variâncias é diferente.
     levene = stats.levene(*arrays, center="median")
+    # Aplicação da Anova
     anova = stats.f_oneway(*arrays)
     result = {
         "group_sizes": {name: len(values) for name, values in GROUPS.items()},

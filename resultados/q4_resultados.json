@@ -1,0 +1,17 @@
+{
+  "group_sizes": {
+    "MATH": 10,
+    "COMP": 10,
+    "CHEM": 10
+  },
+  "group_means": {
+    "MATH": 161.5,
+    "COMP": 182.4,
+    "CHEM": 146.7
+  },
+  "anova_statistic": 1.418046917087027,
+  "anova_pvalue": 0.2596535697144005,
+  "alpha": 0.01,
+  "decision": "fail_to_reject_H0",
+  "hypotheses": "H0: todas as médias são iguais; H1: pelo menos uma média difere"
+}

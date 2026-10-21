@@ -1,0 +1,38 @@
+{
+  "observed_table": [
+    [
+      26,
+      29
+    ],
+    [
+      35,
+      15
+    ]
+  ],
+  "observed_labels": {
+    "rows": [
+      "not-treated",
+      "treated"
+    ],
+    "columns": [
+      "improved",
+      "not-improved"
+    ]
+  },
+  "expected_table": [
+    [
+      31.952380952380953,
+      23.047619047619047
+    ],
+    [
+      29.047619047619047,
+      20.952380952380953
+    ]
+  ],
+  "chi2_statistic": 5.556919794065845,
+  "df": 1,
+  "pvalue": 0.018407774251540804,
+  "alpha": 0.05,
+  "decision": "reject_H0",
+  "minimum_expected_frequency": 20.952380952380953
+}

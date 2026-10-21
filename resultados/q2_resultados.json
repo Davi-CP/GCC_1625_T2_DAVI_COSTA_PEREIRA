@@ -1,0 +1,43 @@
+{
+  "n_automatic": 19,
+  "n_manual": 13,
+  "means": {
+    "automatic": 17.147368421052633,
+    "manual": 24.39230769230769
+  },
+  "normality_tests": {
+    "automatic": {
+      "shapiro_wilk": {
+        "statistic": 0.9767742645573732,
+        "pvalue": 0.8987357869144041
+      },
+      "dagostino_pearson": {
+        "statistic": 0.026123280859505056,
+        "pvalue": 0.9870232926051986
+      },
+      "alpha": 0.05
+    },
+    "manual": {
+      "shapiro_wilk": {
+        "statistic": 0.9458036604920002,
+        "pvalue": 0.5362728852251004
+      },
+      "dagostino_pearson": {
+        "statistic": 1.3447018612988142,
+        "pvalue": 0.5105069993746321
+      },
+      "alpha": 0.05
+    }
+  },
+  "welch_ci95": [
+    -11.280194355040159,
+    -3.2096841874699544
+  ],
+  "mean_difference_automatic_minus_manual": -7.244939271255056,
+  "t_statistic": -3.767123145144923,
+  "df": 18.332251638400464,
+  "pvalue": 0.0006868191665355181,
+  "alpha": 0.05,
+  "decision": "reject_H0",
+  "alternative": "mean_automatic < mean_manual"
+}

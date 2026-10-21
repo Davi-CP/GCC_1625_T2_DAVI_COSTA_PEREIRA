@@ -17,12 +17,40 @@ OUT = ROOT / "resultados"
 def main() -> None:
     OUT.mkdir(exist_ok=True)
     data = pd.read_excel(DATA)
-    numeric = data.select_dtypes(include="number")
-    if numeric.shape[1] < 3:
-        raise ValueError("data9.xls deve conter três colunas numéricas de custos.")
-    numeric = numeric.iloc[:, :3].dropna()
-    groups = {str(column): numeric[column].astype(float) for column in numeric.columns}
+    columns = {str(column).strip().lower(): column for column in data.columns}
+    cost_column = columns.get("cost") or columns.get("custo")
+    if cost_column is None:
+        numeric_columns = data.select_dtypes(include="number").columns
+        if len(numeric_columns) == 1:
+            cost_column = numeric_columns[0]
+        else:
+            raise ValueError("data9.xls deve conter uma coluna de custos.")
+
+    course_column = columns.get("cource") or columns.get("course") or columns.get("disciplina")
+    if course_column is None:
+        non_numeric_columns = data.select_dtypes(exclude="number").columns
+        if len(non_numeric_columns) == 1:
+            course_column = non_numeric_columns[0]
+        else:
+            raise ValueError("data9.xls deve conter uma coluna identificando as disciplinas.")
+
+    observations = pd.DataFrame(
+        {
+            "course": data[course_column].astype("string").str.strip(),
+            "cost": pd.to_numeric(data[cost_column], errors="coerce"),
+        }
+    ).dropna()
+    observations["group"] = observations["course"].str.extract(r"^([A-Za-z]+)", expand=False)
+    observations = observations.dropna(subset=["group"])
+    groups = {
+        str(name): values.astype(float)
+        for name, values in observations.groupby("group", sort=False)["cost"]
+    }
+    if len(groups) != 3 or any(values.empty for values in groups.values()):
+        raise ValueError("data9.xls deve conter custos para três disciplinas.")
+
     samples = list(groups.values())
+    # Teste principal do ANOVA: H0: todas as médias são iguais | H1: pelo menos uma média difere
     anova = stats.f_oneway(*samples)
     result = {
         "group_sizes": {name: int(len(values)) for name, values in groups.items()},

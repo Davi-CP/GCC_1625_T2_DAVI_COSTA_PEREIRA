@@ -21,7 +21,9 @@ def main() -> None:
     if not required.issubset({str(column).strip().lower() for column in data.columns}):
         raise ValueError("treatment.csv deve conter treatment e improvement.")
     columns = {str(column).strip().lower(): column for column in data.columns}
+    # Construção da tabela de contingência
     table = pd.crosstab(data[columns["treatment"]], data[columns["improvement"]])
+    # Execução do teste qui-quadrado de independência. H0: as variáveis são independentes | H1: as variáveis não são independentes
     chi2, pvalue, df, expected = stats.chi2_contingency(table, correction=False)
     result = {
         "observed_table": table.astype(int).values.tolist(),
